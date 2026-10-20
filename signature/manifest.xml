@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
+  xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides" xsi:type="MailApp">
+  <Id>3E1D17FA-BA83-4B74-B3E9-C3D107DAD704</Id>
+  <Version>1.0.0.0</Version>
+  <ProviderName>ZOOD IT Department</ProviderName>
+  <DefaultLocale>en-US</DefaultLocale>
+  <DisplayName DefaultValue="ZOOD Signature"/>
+  <Description DefaultValue="Adds the official ZOOD email signature to every email, reply and forward."/>
+  <IconUrl DefaultValue="https://zoodapp.github.io/signature/assets/icon-64.png"/>
+  <HighResolutionIconUrl DefaultValue="https://zoodapp.github.io/signature/assets/icon-128.png"/>
+  <SupportUrl DefaultValue="https://zood.sa"/>
+  <AppDomains>
+    <AppDomain>https://zoodapp.github.io</AppDomain>
+    <AppDomain>https://login.microsoftonline.com</AppDomain>
+  </AppDomains>
+  <Hosts><Host Name="Mailbox"/></Hosts>
+  <Requirements><Sets DefaultMinVersion="1.1"><Set Name="Mailbox"/></Sets></Requirements>
+  <FormSettings>
+    <Form xsi:type="ItemRead">
+      <DesktopSettings>
+        <SourceLocation DefaultValue="https://zoodapp.github.io/signature/taskpane.html"/>
+        <RequestedHeight>250</RequestedHeight>
+      </DesktopSettings>
+    </Form>
+  </FormSettings>
+  <Permissions>ReadWriteItem</Permissions>
+  <Rule xsi:type="RuleCollection" Mode="Or">
+    <Rule xsi:type="ItemIs" ItemType="Message" FormType="Read"/>
+  </Rule>
+  <DisableEntityHighlighting>true</DisableEntityHighlighting>
+  <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides" xsi:type="VersionOverridesV1_0">
+    <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides/1.1" xsi:type="VersionOverridesV1_1">
+      <Description resid="residAppDesc"/>
+      <Requirements><bt:Sets DefaultMinVersion="1.10"><bt:Set Name="Mailbox"/></bt:Sets></Requirements>
+      <Hosts>
+        <Host xsi:type="MailHost">
+          <Runtimes>
+            <Runtime resid="Autorun">
+              <Override type="javascript" resid="runtimeJs"/>
+            </Runtime>
+          </Runtimes>
+          <DesktopFormFactor>
+            <ExtensionPoint xsi:type="MessageComposeCommandSurface">
+              <OfficeTab id="TabDefault">
+                <Group id="ZoodSigGroupMsg">
+                  <Label resid="residGroup"/>
+                  <Control xsi:type="Button" id="ZoodSigBtnMsg">
+                    <Label resid="residBtn"/>
+                    <Supertip><Title resid="residBtn"/><Description resid="residBtnTip"/></Supertip>
+                    <Icon>
+                      <bt:Image size="16" resid="Icon.16x16"/>
+                      <bt:Image size="32" resid="Icon.32x32"/>
+                      <bt:Image size="80" resid="Icon.80x80"/>
+                    </Icon>
+                    <Action xsi:type="ShowTaskpane"><SourceLocation resid="residTaskpane"/></Action>
+                  </Control>
+                </Group>
+              </OfficeTab>
+            </ExtensionPoint>
+            <ExtensionPoint xsi:type="AppointmentOrganizerCommandSurface">
+              <OfficeTab id="TabDefault">
+                <Group id="ZoodSigGroupAppt">
+                  <Label resid="residGroup"/>
+                  <Control xsi:type="Button" id="ZoodSigBtnAppt">
+                    <Label resid="residBtn"/>
+                    <Supertip><Title resid="residBtn"/><Description resid="residBtnTip"/></Supertip>
+                    <Icon>
+                      <bt:Image size="16" resid="Icon.16x16"/>
+                      <bt:Image size="32" resid="Icon.32x32"/>
+                      <bt:Image size="80" resid="Icon.80x80"/>
+                    </Icon>
+                    <Action xsi:type="ShowTaskpane"><SourceLocation resid="residTaskpane"/></Action>
+                  </Control>
+                </Group>
+              </OfficeTab>
+            </ExtensionPoint>
+            <ExtensionPoint xsi:type="LaunchEvent">
+              <LaunchEvents>
+                <LaunchEvent Type="OnNewMessageCompose" FunctionName="onNewMessageCompose"/>
+                <LaunchEvent Type="OnNewAppointmentOrganizer" FunctionName="onNewAppointmentCompose"/>
+              </LaunchEvents>
+              <SourceLocation resid="Autorun"/>
+            </ExtensionPoint>
+          </DesktopFormFactor>
+        </Host>
+      </Hosts>
+      <Resources>
+        <bt:Images>
+          <bt:Image id="Icon.16x16" DefaultValue="https://zoodapp.github.io/signature/assets/icon-16.png"/>
+          <bt:Image id="Icon.32x32" DefaultValue="https://zoodapp.github.io/signature/assets/icon-32.png"/>
+          <bt:Image id="Icon.80x80" DefaultValue="https://zoodapp.github.io/signature/assets/icon-80.png"/>
+        </bt:Images>
+        <bt:Urls>
+          <bt:Url id="residTaskpane" DefaultValue="https://zoodapp.github.io/signature/taskpane.html"/>
+          <bt:Url id="Autorun" DefaultValue="https://zoodapp.github.io/signature/commands.html"/>
+          <bt:Url id="runtimeJs" DefaultValue="https://zoodapp.github.io/signature/launchevent.js"/>
+        </bt:Urls>
+        <bt:ShortStrings>
+          <bt:String id="residGroup" DefaultValue="ZOOD"/>
+          <bt:String id="residBtn" DefaultValue="ZOOD Signature"/>
+        </bt:ShortStrings>
+        <bt:LongStrings>
+          <bt:String id="residAppDesc" DefaultValue="Adds the official ZOOD email signature to every email, reply and forward."/>
+          <bt:String id="residBtnTip" DefaultValue="Activate or preview your ZOOD signature."/>
+        </bt:LongStrings>
+      </Resources>
+    </VersionOverrides>
+  </VersionOverrides>
+</OfficeApp>
