@@ -5,7 +5,7 @@
 <td width="380" height="148" valign="top" style="width:380px;height:148px;padding:0;">
 <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;"><tr><td style="padding:38px 0 0 0;">
 <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">
-<tr><td align="right" dir="rtl" style="padding:0;text-align:right;font-family:${c};font-size:15px;line-height:19px;${l}white-space:nowrap;mso-line-height-rule:exactly;">${e||"&nbsp;"}</td></tr>
+<tr><td align="left" dir="rtl" style="padding:0;text-align:left;font-family:${c};font-weight:bold;font-size:15px;line-height:19px;${l}white-space:nowrap;mso-line-height-rule:exactly;">${e||"&nbsp;"}</td></tr>
 <tr><td align="left" dir="ltr" style="padding:0;text-align:left;font-family:${c};font-size:21px;line-height:24px;${l}white-space:nowrap;mso-line-height-rule:exactly;">${r}</td></tr>
 <tr><td align="left" dir="ltr" style="padding:3px 0 0 0;"><table role="presentation" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;"><tr>${o?`<td valign="middle" style="font-family:${c};font-size:9.5px;line-height:13px;${l}white-space:nowrap;">${o}</td>`:""}${o&&t?`<td valign="middle" style="${z}padding:0 5px;">${m("email%20signature%20-Icons_Space.png",6,6)}</td>`:""}${t?`<td valign="middle" dir="rtl" style="font-family:${c};font-size:9.5px;line-height:13px;${l}white-space:nowrap;">${t}</td>`:""}</tr></table></td></tr>
 </table>
